@@ -1,6 +1,4 @@
 <?php
-	//require_once "../interface.IRecombinationInterface.php";
-
 	class CrossoverStrategy implements IRecombinationStrategy
 	{
 		public function recombine(Chromosome $male, Chromosome $female)

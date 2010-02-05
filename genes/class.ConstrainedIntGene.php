@@ -1,6 +1,4 @@
 <?php
-	//require_once "class.IntGene.php";
-
 	class ConstrainedIntGene extends IntGene
 	{
 		private $constrain;

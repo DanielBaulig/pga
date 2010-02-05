@@ -1,8 +1,4 @@
 <?php
-
-	//require_once "../../../../lib.Random.php";
-	//require_once "../interface.ISelectionStrategy.php";
-
 	class PieCakeStrategy implements ISelectionStrategy
 	{
 		public function select(Population $population)

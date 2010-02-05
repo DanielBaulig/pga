@@ -1,6 +1,4 @@
 <?php
-	//require_once "../interface.IGene.php";
-	
 	class IntGene implements IGene
 	{
 		private $value;

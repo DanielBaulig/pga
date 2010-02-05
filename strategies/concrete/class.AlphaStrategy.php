@@ -1,6 +1,4 @@
 <?php
-	//require_once "../interface.ISelectionStrategy.php";
-
 	/** Implements the ISelectionStrategy interface to select a chromosome from a population
 	 * 
 	 * AlphaStrategy selects the single best chromosome from a population. As every
