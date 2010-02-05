@@ -1,0 +1,52 @@
+<?php
+	//require_once "../interface.IRecombinationInterface.php";
+
+	class CrossoverStrategy implements IRecombinationStrategy
+	{
+		public function recombine(Chromosome $male, Chromosome $female)
+		{
+			// chromosomes must have same length
+			assert($male->count() == $female->count());
+			// chromosomes must have at least 2 genes
+			assert($male->count() > 1);			
+				
+			// determine a random position within the male chromosome
+			$pos = rand(0, $male->count()-2);
+
+			// create a chromosome to hold the child
+			$child = new Chromosome();
+			
+			// prepare the male and female chromosomes
+			$male->rewind();
+			$female->rewind();
+			do 
+			{
+				// copy the current male gene to the child while preserving the key!
+				$child[$male->key()] = clone $male->current();
+				// step to the next element
+				$male->next();
+				$female->next();
+			} while($pos-- > 0); // keep going until we reach the random position
+			// from here continue as long as there remain genes in the female chromosome
+			while($female->current())
+			{
+				// and assign the current female gene to the child while preserving the key
+				$child[$female->key()] = clone $female->current();
+				// stop to the next element
+				$female->next();
+			}
+			
+			return $child;
+		}
+		protected function __construct() { }
+		private static $instance = null;
+		public static function getInstance()
+		{
+			if (CrossoverStrategy::$instance == null)
+			{
+				CrossoverStrategy::$instance = new CrossoverStrategy();
+			}
+			return CrossoverStrategy::$instance;
+		}
+	}
+?>
