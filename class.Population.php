@@ -71,19 +71,12 @@
 			return $nextPopulation;
 		}
 		
-		public function populate(array $chromosomeTemplate, $count, $mutate=true)
+		public function populate(array $chromosomeTemplate, $count, $randomize=true)
 		{
 			unset($this->chromosomes);
 			while ($this->count() < $count)
 			{
-				$chromosome = new Chromosome();
-				foreach ($chromosomeTemplate as $geneName => $genePrototype)
-				{
-					$chromosome[$geneName] = clone $genePrototype;
-					if ($mutate)
-						$chromosome[$geneName]->mutate();
-				}
-				$this->chromosomes[] = $chromosome;
+				$this->chromosomes[] = new Chromosome($chromosomeTemplate, $randomize);
 			}
 		}
 		

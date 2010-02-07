@@ -1,4 +1,8 @@
 <?php
+	function lcg_randf($min, $max)
+	{
+		return $min + lcg_value() * abs($max - $min);
+	}
 	
 	function PGA_loadClass($className)
 	{

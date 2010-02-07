@@ -1,13 +1,25 @@
 <?php
+	/**
+	 * 
+	 * @author ip
+	 *
+	 */
 	class Chromosome implements ArrayAccess, Countable, Iterator
 	{
 		private $genes = array();
 		private $fitness = 0;
 		
-		public function printGenes()
+		public function __construct(array $template = null, $randomize=true)
 		{
-			print_r($this->genes);
-			print_r(current($this->genes));
+			if ($template != null)
+			{
+				foreach ($template as $geneName => $genePrototype)
+				{
+					$this->genes[$geneName] = clone $genePrototype;
+					if ($randomize)
+						$this->genes[$geneName]->mutate();
+				}
+			}
 		}
 		
 		public function __clone()
