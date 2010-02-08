@@ -1,6 +1,5 @@
 <?php
-	//require_once "../interface.ISingleton.php";
-	/** Interface defining a recombination strategy
+	/** This interface defines a recombination strategy
 	 * 
 	 * The IRecombinationStrategy interface defines how two chromosomes
 	 * recombinate to a child. 

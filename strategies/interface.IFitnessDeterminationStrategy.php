@@ -1,6 +1,5 @@
 <?php
-	//require_once "../interface.ISingleton.php";
-	/** Interface defining a fitness determination strategy (fitness function)
+	/** This interface defines a fitness determination strategy (fitness function)
 	 * 
 	 * The IFitnessDeterminationStrategy interface defines how a chromosomes
 	 * fitness is determined. 

@@ -1,6 +1,5 @@
 <?php
-	//require_once "../interface.ISingleton.php";
-	/** Interface defining a selection strategy
+	/** This interface defines a selection strategy
 	 * 
 	 * The ISelectionStrategy interface defines how a chromosome
 	 * is selected from a population. 
