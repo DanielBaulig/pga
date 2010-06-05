@@ -4,17 +4,17 @@
 		public function select(Population $population)
 		{
 			$rand = lcg_randf(0, $population->getTotalFitness());
-			reset($population);
-			while(current($population) && $rand > current($population)->getFitness())
+			$population->rewind();
+			while($population->valid() && $rand > $population->current()->getFitness())
 			{
-				$rand -= current($population)->getFitness();
-				next($population);
+				$rand -= $population->current()->getFitness();
+				$population->next();
 			}
 			if ($rand > 0) // might happen due to numeric effects
 			{
-				end($population); // return last element if it happens
+				$population->end(); // return last element if it happens
 			}
-			return current($population);
+			return $population->current();
 		}
 		protected function __construct() { }
 		private static $instance = null;

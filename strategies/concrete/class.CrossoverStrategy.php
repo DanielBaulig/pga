@@ -26,7 +26,7 @@
 				$female->next();
 			} while($pos-- > 0); // keep going until we reach the random position
 			// from here continue as long as there remain genes in the female chromosome
-			while($female->current())
+			while($female->valid())
 			{
 				// and assign the current female gene to the child while preserving the key
 				$child[$female->key()] = clone $female->current();

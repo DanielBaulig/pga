@@ -187,6 +187,10 @@
 			return $this->current() !== false;
 		}
 		//-Iterator Interface
+		public function end()
+		{
+			return end($this->chromosomes);
+		}
 		//+ArrayAccess Interface
 		public function offsetExists($offset)
 		{
